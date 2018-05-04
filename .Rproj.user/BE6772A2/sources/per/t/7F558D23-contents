@@ -1,0 +1,221 @@
+---
+title: "Lie to Friends, Truth to Strangers"
+subtitle: "Voicing Political Preferences in Authoritarian China"
+author: "Haohan Chen"
+date: "April 2, 2018"
+output: pdf_document
+fontsize: 12pt
+geometry: margin = 3cm
+linestretch: 1.5
+bibliography: /Users/haohanchen1/Dropbox/MendeleyBibTeX2/Dissertation2.bib
+csl: apsa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+# output: 
+#   pdf_document:
+#     latex_engine: xelatex
+#     includes: 
+#       in_header: header.tex
+
+```
+
+
+## Introduction
+
+People adjust presentations of their political preferences according to which network they communicate with. Also, expressions of political preferences have haterogeneous persuasive effect according to the social network where it is conveyed. I argue that understanding the psychological mechanism underlying preference expression and its reception is important to understanding authoritarian control. Specifically, it helps answer the following questions of authoritarian politics: Why do people in authoritarian regimes voice their political opinions publicly? Why do many authoritarian governments tolerate public political discussions, even if some of them are critical against the ruling elites? Why do the mass revelation of public opinion facilitated
+by the spread of the Internet does not shake authoritarian rules in large part of the world?
+
+In this paper, I take a first step for my dissertation project to theorize the the political psychology of preference expression in authoritarian regimes and provide a preliminary empirical analysis with an original dataset of online political discussion. I argue that people prefers to voice their discontent against the regime with strangers (those out of one’s close network) to doing so with friends (those in one’s close network), while the regime tolerate such behavior to collect information while minimizing threats of collective action. An elaborated version of this argument is put forward as follows. (1) People in authoritarian regimes are willing to express their opinions that are sensitive or critical to the regime, if they feel safe against reputational sanction by people in their close network. (2) Authoritarian regimes tolerate public expression (as oppose to private expression) of political preference because the regime collects information with minimal threat of collective action. Specifically, from people’s public expression of political preferences, (2a) the regime collect information about its governance; (2b) the expressed preference is hard to stimulate collective action, because it is hard to reach its audience who can potentially join a collective action and, even it does, its credibility is
+always questioned; (2c) expression of conflictual preferences by different people inform them about the split of public opinion, thus disorganizing collective actions.
+
+## Forming and Voicing Preferences: Citizens and the Regime
+
+Citizens in authoritarian China form haterogeneous political preferences and communicate them. The regime controls them strategically. Recent years have seen innovative empirical studies on the topic, but a theory with consistent micro-foundation is lacking. In this section, I give a brief literature review.
+
+Citizens of authoritarian China *form* haterogeneous, structured political preferences, and they *voice* them stratigically. Recent studies find that political preferences of Chinese respondents demonstrates high variation in economic, political and cultural dimensions, and are well explained by their demographics [@Pan2015a; @Wu2016d]. Yet, people voice their opinions strategically. Citizens without personal ties with governmental officials refrain from voicing their preferences to the authority compared to those with connected to the power [@Tsai2017]. Citizens fake their support for the government at time of high political pressure such as purge of officials [@Jiang2016a]. They self-censor their political discussions in public space to avoid engagement with a large audience at sensitive time and place [@changmanion2018].
+
+To the opposite end of voicing preferences, citizens in authoritarian China *receive and process* political information in a sophisticated manner. Chinese citizens' trust in the regime and the ruling elites is influenced by political misinformation and its correction, as is shown in a survey experiment [@Huang2015b]. Experiments by the same author finds that Chinese citizens may have liked western countries due to rosy imagination of the socioeconomic condition in western countries -- their evaluation of the Chinese regimes increases after they read reports from foreign media, some of which write on the negative side of foreign countries [@HUANG2015; @HaifengHuang2017]. 
+
+The authoritarian regime manages and manipulates *the formation and the communication* of political preference strategically. First, the regime manages preference *formation* through education and propaganda. The regime shape the "fundamentals" through education. Empirical findings show that the Chinese government has successfully culativated pro-regime, anti-democracy and anti-market ideology through a curriculum reform [@Cantoni2017]. In addition, the regime uses media for propaganda, not only to introduce pro-regime values and attitude, but also to signal its strength in media control [@Huang2014a]. Second, the regime manages the *commmunication* of political preferences through strategic censorship. A large-scale observational and experimental study of China's social media shows that the regime censor posts provoking collective actions while tolerating those criticizing the government [@King2013; @King2014a]. The Chinese regime hires a large "army" (aka the "fifty cents") to distract citizens from online dialogue harmful to the regime [@King2016]. The regime has also compelled commercial providers of Internet service to remove politically sensitive online content [@Miller2017a].
+
+How do citizens and the authoritarian regime *interact* in the process of preference formation and communication? Recent studies in the literature find that citizens respond to the state's management and manipulation. @Hobbs2016a show the regime's sudden censorship on particular content can stimulate citizens' search for not only the censored content of interest, but also other related content. @Chen2017c indicates citizens of authoritarian China may overall have low demand for uncensored information, even if techniques bypassing censorship is provided. Though, the study also finds that as long as they are encourged and takes the first step to obtain uncensored information, they will be "addicted" to it. On the regime's side, officials are receptive towards citizens' public expression of political preference online only when they perceive state-society tension to be low [@Meng2017a]. 
+
+Reflecting upon the studies reviewed above, I argue that the scholarship has made unprecendented progress in finding empirical patterns of preference formation and expression in authoritarian China. However, a consistent theory with micro-foundation is missing. First, Scholars have employed inovative empirical strategies to collect (e.g. web scraping, survey experiment, quasi-experiment) and analyze (e.g. machine learning) large-scale individual-level data. *However*, what's missing in the state-of-the-art literature is a theoretical model of preference expression and its control by the authoritarian regimes with a consistent micro-foundation of both citizens and the regime. Specifically, how do citizens choose whether to express their preferences? If one decides to express his preferences, how and where does he express them, given their understanding on the regime's preference and strategy? At the same time, how does the regime control citizens' preference expressions in its favor, given its understanding on citizens concerns? *My dissertation strives to develop a theoretical model of voicing political preferences in authoritarian regimes and test it with new empirical strategies using original datasets.* 
+
+In the following two sections, I introduce a preliminary draft of my theory. I first discuss two streams of literature on which my theory is based. Then I describe a sketch of my theory. 
+
+## Strategic Censorship and Preference Falsification
+
+As I argue in the previous section, to fill the gap of the state-of-the-art literature, we need a theoretical model specifying micro-level preferences of citizens and the regime (or its elites) specified. The political science literature of authoritarian politics in the past decades have set a solid foundation for this theoretical pursuit.
+
+With a focus on elites' strategies, two recent theoretical contributions argue that authoritarian regimes censor expressions of political preferences to monitor lower-level officials and to disorganize collective action. First, @Lorentzen2014 models the Chinese regime's decision to censor independent report targeting lower-level officials as a trade-off between gaining information about corruptions and the threat of revolt. Second, in the game theoretic model of @Chen2017b, citizens do not organize collective action if they find sufficient division of opinion by hearing other's voice, while the regime allows citizens to voice their opinions when they perceive high-enough haterogeneity in public opinion. 
+
+While the above two models are good starting points of my theoretical pursuit, they fall short in reflecting the essence of preference expressions in authoritarian politics in the following way. First, @Lorentzen2014 does not model the step of citizens' choice of preference expression, which is central to the question of authoritarian censorship. Second, while @Chen2017b explicitly models citizens' voicing preference, citizens are assumed to naively express their true preferences, which is a strong assumption deviating from the reality. Third, the two models are both two-player games, which are high-level abstraction of the real-world politics where a large number of connected citizens make strategic choice in preference expressions. As a critical part of preference expressions, each citizen may make his decision based on not only the regime's strategies, but also other citizen's move.
+
+The remedy to the *second* and the *third* drawbacks of the existing theories of strategic censorship lies in the seminal work on *Preference Falsification*. @kuran1995 argues people make false statement about their preferences in many occasions. This is because one makes decisions about preference expressions to maximize the aggregation of three types of utilities: *intrinsic utility*, which represent the option one would choose if his is alone; *reputational utility*, the payoff incurred when the society knows about one's preference, and; *expressive utility*, one's psychological payoff for speaking the truth. The author argues that fear of *reputational sanctions* can drives people to falsify their expressions of political preferences. Following this micro-level mechanism, the book explains why the world fails to predict revolutions -- people fake their support for the dictator, while only revealing their opposition when a sufficient number of others have done so [see also @Kuran1989; @Kuran1991]. The theory has been empirically tested in different countries for more than a decade [see, for instance, @Jiang2016a].
+
+Integrating preference falsification can *almost* remedy the problems of the existing censorship model, except that *reputational sanctions* no longer works the same way as it did when the theory was developed, because our way of political communication has radically changed. In the Preference Falsification theory, members of "the public" or "the society" who reward or punish an individual for his reputational utility likely in the individual's close network, such as families, colleagues, neighbours, friends. Those who are not in one's network, the strangers, has near zero effect on one's utility of preference expression -- people simply have no way to express their political preferences to them. Today, with the development of the Internet and social media, individuals can express their preferences to both members in their close network (*"friends"*) and those outside their close network (*"strangers"*). I argue that a model of preference expression in authoritarian regimes should fit the current mode of political communication. In the following section, I describe a sketch of my theory.
+
+## Voicing in Networks: Lie to Friends, Truth to Strangers
+
+I propose the following theory of political preference expression in authoritarian regime: *Citizens in authoritarian regimes lie to their friends, but tell the truth to strangers about their political preferences. The regime tolerates political communication among strangers, and use it to maintain control.* The logic is elaborated as follows.
+
+First of all, the presumption of this theory is that people have the tool to connect to those outside his network ("strangers"). This presumption is plausible with the increase of the number of Internet users and the popularity of social media in authoritarian China. It's worth emphasizing that I am *not* proposing a theory on how the Internet and social media affect authoritarian politics. This stream of literature makes wrong predictions and is trapped in unproductive debates about whether the Internet promotes democracy -- from excessive optimism after the Arab Spring to excessive pessimism in recent months -- for the very reason that they lack a coherent micro-level model [for reviews, see @Farrell2012a; @Gunitsky2015].
+
+I argue that the new technology empowers citizens' to connect with strangers, thus allowing them to selectively express their political preferences in different networks of political discussion. The two network, which I for now dichotomize into the the close network (with "friends") and non-close network (with "strangers"), offer different *payoff structures* for political expression. Tentatively following the terminology of the preference falsification, I argue that political expressions in close network compared to that in non-close network incurs higher risk of of reputational sanction, while yielding higher expressive utility. First, "friends" are likely to impose real punishment in one's social life, if he expresses an opinion different from others (such as discontent about the regime). However, I expect expressing true opinion to a person in your close network renders higher enjoyment exactly because of its difficulty. Overall, the reduction in worries about reputational sanction outweigh the decrease of expressive utility for an average person. Thus, citizens in authoritarian regimes should express their true preferences to "strangers" while falsifying their preferences to "friends".
+
+An authoritarian regime is expected to welcome and encourage citizens' expressions of political opinion with strangers. The type of communication gives the regime the following benefit. First, it provides the regime with information. Especially as communications with strangers mostly occur in online platforms which the regime can closely monitor with low cost (comparing to monitoring what one talks about with friends in his living room). Second, it poses minimal threat of collective action for the following reasons. (a) Due to the lack of connectedness of the network with strangers, messages voicing discontent are hard to reach an audience that can potentially join a collective action. (b) Even if the message reaches an audience that can potentially join a collective action effort, the individuals involved are skeptical about the cridibility of the message and the sincerity of others, which reduces the chance of an collective action. (3) The size of the stranger's networks make it more likely for a citizen to encounter those with different opinion from his, which also discourages him from joining a collective action.
+
+## Empirical Strategies
+
+### Data
+
+I collected a original dataset of preference expression from the "politics" section of Zhihu.com, a Question-and-Answer website with 250 million visits and 17 million registered users in mid-2015 \footnote{http://news.xinhuanet.com/newmedia/2015-05/14/c\_134238843.htm}. On the website, users can perform the following activities. \textbf{Ask:} A user can post questions of his interest. He may label the question with a large set of pre-defined tags (e.g. "politics", "economy", "war", "family", "food"). One question usually have multiple tags. Users contribute answers to a question. The questions are then recommended by the website to users whose self-identified interest or record of activities match with the tags or the key words of the questions. \textbf{Answer:} A user can post his answer on any question. *Users can choose to post their answers anonymously*. \textbf{Vote:} An user can "vote for" (upvote) an answer of his liking, or "vote against" (downvote) it. The count of total upvotes for each answer is publicly reviewed, while that of downvote is private information. The ranking of the answer among all answers to a question is determined by its total upvote and downvotes. The function of voting is also open to all users. \textbf{Thanks:} Users can "thank" the author of a particular answer. The count of thanks for an answer is not publicly revealed. But the total "thanks" a user received is public in his profile. \textbf{Comment:} An user can comment on answers \footnote{Authors of answers have the option to disable the discussion board, in which case no one can comment on it. However, openning the discussion forum is the default setting and few users choose to disable it.}. Users who join the discussion can deliberate with one another by "replying to" specific participants. All discussions in the discussion board of a question are public. \textbf{Liking comments:} Users can "like" a comment. The total count of like a comment receive is also public information. \textbf{Following:} An user can choose to follow a specific question, questions under a tag, or a specific user, which brings all updates of the question or user followed to his timeline.
+
+The website's very feature hat makes it a best fit to test my theory is its "anonymity" option that users may choose when they post an answer. When a user chooses to post an answer anonymously, the answer will not show on his timeline. At the same time, his profile picture and a link to his detailed information (e.g. self-reported demographics, past activities on the website) will not appear at the header of the answer. Figure \ref{fig:interface} shows the difference between an anonymous and a non-anonymous answer.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.45\linewidth]{prospectus2-figure/interface-anonymous.png}
+  \includegraphics[width=.45\linewidth]{prospectus2-figure/interface-id.png}
+  \caption{Anonymous versus Non-Anonymous Posting of Answers}
+  \label{fig:interface}
+\end{figure}
+
+
+```{r}
+### Operationalization
+
+### Descriptive Statistics
+
+### Preliminary Results
+
+## Moving Forward
+```
+
+\clearpage
+
+### Preliminary Analysis (To Elaborate in the Presentation)
+
+```{r}
+######################
+# Liraries
+######################
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+library(wordcloud2)
+library(stargazer)
+
+######################
+# Load data
+######################
+load("../data/cleaned/answer_s2_merged.Rdata")
+answer$time_created2 <- as.POSIXct(answer$time_created, origin = "1970-01-01")
+answer$time_created3 <- as.Date(answer$time_created2)
+```
+
+
+```{r, fig.cap="\\label{fig:ans-desc-ans}Descriptive Statistics (Answers)", fig.width=8, fig.height=4, fig.align='center', out.width="100%", fig.pos="h"}
+# Date posted
+fig1 <- ggplot(answer, aes(x = time_created2)) + geom_histogram(bins = 365) + xlab("Date") + ylab("Number of Answer") + ggtitle("Number of Answers by Date")
+
+fig2 <- ggplot(answer, aes(x = ner_num_token)) + geom_histogram(bins = 60) + xlab("Number of Words") + ylab("Number of Answers") + ggtitle("Number of Words")
+plot_grid(fig1, fig2, ncol = 2)
+
+rm(fig1, fig2)
+```
+
+```{r, fig.cap="\\label{fig:ans-desc-sent}Descriptive Statistics (Sentiments)", fig.width=8, fig.height=4, fig.align='center', out.width="100%", fig.pos="h"}
+# Date posted
+fig1 <- answer %>% group_by(time_created3) %>% summarise(m_sent = mean(sent_neg_wb)) %>% ggplot(., aes(x = time_created3, y = m_sent)) + geom_line() + geom_smooth(method = 'loess') + xlab("Date") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Sentiment of Answers by Date")
+
+fig2 <- answer %>% group_by(time_created3) %>% summarise(m_sent = mean(comm_sent_neg_mean, na.rm = T)) %>% ggplot(., aes(x = time_created3, y = m_sent)) + geom_line() + geom_smooth(method = 'loess') + xlab("Date") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Avg Sentiment of Comments by Date")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+```{r, eval=FALSE}
+load("../data/cleaned/answer_ner_detail.Rda")
+
+answer_ner_dt %>% filter(type == "job_title") %>% group_by(entity) %>% summarise(freq = n()) %>% top_n(100, freq) %>% wordcloud2
+
+answer_ner_dt %>% filter(type == "location") %>% group_by(entity) %>% summarise(freq = n()) %>% top_n(100, freq) %>% wordcloud2
+
+answer_ner_dt %>% filter(type == "org_name") %>% group_by(entity) %>% summarise(freq = n()) %>% top_n(100, freq) %>% wordcloud2
+
+answer_ner_dt %>% filter(type == "person_name") %>% group_by(entity) %>% summarise(freq = n()) %>% top_n(100, freq) %>% wordcloud2
+```
+
+\begin{figure}[!htb]
+  \centering
+  \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-job-title}
+      \caption{NER: Job Title}
+      \label{fig:ner1}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-person-name}
+      \caption{NER: Person Name}
+      \label{fig:ner2}
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-org-name}
+      \caption{NER: Organizatoin Name}
+      \label{fig:ner3}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-location}
+      \caption{NER: Location}
+      \label{fig:ner4}
+  \end{minipage}
+\end{figure}
+
+
+
+```{r, fig.cap="\\label{fig:ans-desc-sent}Answer's Negative Sentiment and Anonymity", fig.width=5, fig.height=5, fig.align='center', out.width="50%", fig.pos="h"}
+# Sentiment by anonymity
+ggplot(answer, aes(x = anonymity, y = sent_neg_wb)) + geom_boxplot() + xlab("Anonymity") + ylab("Pr(Negative Sentiment)") + ggtitle("Negative Comments and Answer")
+
+```
+
+```{r, fig.cap="\\label{fig:comm-sent-ano}Comments' Negative Sentiment and Anonymity", fig.width=10, fig.height=5, fig.align='center', out.width="100%", fig.pos="h"}
+# Sentiment by anonymity
+fig1 <- ggplot(answer, aes(x = anonymity, y = comm_sent_neg_mean)) + geom_boxplot() + xlab("Anonymity") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Mean")
+
+fig2 <- ggplot(answer, aes(x = anonymity, y = comm_sent_neg_var)) + geom_boxplot() + xlab("Anonymity") + ylab("Var Pr(Negative Sentiment)") + ggtitle("Variance")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+```{r, fig.cap="\\label{fig:comm-num-ano}Number of Comments and Back-and-Forth Discussions", fig.width=10, fig.height=5, fig.align='center', out.width="100%", fig.pos="h"}
+# Sentiment by anonymity
+fig1 <- ggplot(answer, aes(x = anonymity, y = log(comment_n))) + geom_boxplot() + xlab("Anonymity") + ylab("Number of Comments") + ggtitle("Comments")
+
+fig2 <- ggplot(answer, aes(x = anonymity, y = log(comm_n_bnf))) + geom_boxplot() + xlab("Anonymity") + ylab("Number of Back-and-Forth") + ggtitle("Back and Forth")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+```{r, results='asis'}
+# Table. NER
+answer %>% group_by(anonymity) %>% select(ner_job_title, ner_location, ner_org_name, ner_person_name) %>% summarise_all(funs(mean)) %>% rename("Job Title" = ner_job_title, "Location" = ner_location, "Org Name" = ner_org_name, "Person Name" = ner_person_name) %>% t %>% stargazer(., title = "Average of Mentioning Named Entities", label = "tab:ner", header = F)
+```
+
+
+
+
+\clearpage
+
+## References
+

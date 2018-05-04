@@ -1,0 +1,247 @@
+"",".id","country","dist"
+"1","USA","Canada",0
+"2","USA","Mexico",0
+"3","Canada","USA",0
+"4","Mexico","USA",0
+"5","Mexico","Guatemala",0
+"6","Guatemala","Mexico",0
+"7","Guatemala","Honduras",0
+"8","Guatemala","El Salvador",0
+"9","Honduras","Guatemala",0
+"10","Honduras","El Salvador",0
+"11","Honduras","Nicaragua",0
+"12","El Salvador","Guatemala",0
+"13","El Salvador","Honduras",0
+"14","El Salvador","Nicaragua",37.6913941279297
+"15","Nicaragua","Honduras",0
+"16","Nicaragua","El Salvador",37.6913941279297
+"17","Nicaragua","Costa Rica",0
+"18","Costa Rica","Nicaragua",0
+"19","Costa Rica","Panama",0
+"20","Panama","Costa Rica",0
+"21","Panama","Colombia",0
+"22","Colombia","Panama",0
+"23","Colombia","Venezuela",0
+"24","Colombia","Ecuador",0
+"25","Colombia","Peru",0
+"26","Colombia","Brazil",0
+"27","Venezuela","Colombia",0
+"28","Venezuela","Brazil",0
+"29","Ecuador","Colombia",0
+"30","Ecuador","Peru",0
+"31","Peru","Colombia",0
+"32","Peru","Ecuador",0
+"33","Peru","Brazil",0
+"34","Peru","Bolivia",0
+"35","Peru","Chile",0
+"36","Brazil","Colombia",0
+"37","Brazil","Venezuela",0
+"38","Brazil","Peru",0
+"39","Brazil","Bolivia",0
+"40","Brazil","Paraguay",0
+"41","Brazil","Argentina",0
+"42","Brazil","Uruguay",0
+"43","Bolivia","Peru",0
+"44","Bolivia","Brazil",0
+"45","Bolivia","Paraguay",0
+"46","Bolivia","Chile",0
+"47","Bolivia","Argentina",0
+"48","Paraguay","Brazil",0
+"49","Paraguay","Bolivia",0
+"50","Paraguay","Argentina",0
+"51","Chile","Peru",0
+"52","Chile","Bolivia",0
+"53","Chile","Argentina",0
+"54","Argentina","Brazil",0
+"55","Argentina","Bolivia",0
+"56","Argentina","Paraguay",0
+"57","Argentina","Chile",0
+"58","Argentina","Uruguay",0
+"59","Uruguay","Brazil",0
+"60","Uruguay","Argentina",0
+"61","UK","Ireland",0
+"62","UK","France",34.881954885774
+"63","Ireland","UK",0
+"64","Netherlands","Belgium",0
+"65","Netherlands","Germany",0
+"66","Belgium","Netherlands",0
+"67","Belgium","France",0
+"68","Belgium","Germany",0
+"69","France","UK",34.881954885774
+"70","France","Belgium",0
+"71","France","Switzerland",0
+"72","France","Spain",0
+"73","France","Germany",0
+"74","France","Italy",0
+"75","Switzerland","France",0
+"76","Switzerland","Germany",0
+"77","Switzerland","Austria",0
+"78","Switzerland","Italy",0
+"79","Spain","France",0
+"80","Spain","Portugal",0
+"81","Spain","Morocco",22.0480871837099
+"82","Portugal","Spain",0
+"83","Germany","Netherlands",0
+"84","Germany","Belgium",0
+"85","Germany","France",0
+"86","Germany","Switzerland",0
+"87","Germany","Poland",0
+"88","Germany","Austria",0
+"89","Germany","Czech Rep.",0
+"90","Germany","Italy",48.0343749057448
+"91","Germany","Denmark",6.19579706224071
+"92","Poland","Germany",0
+"93","Poland","Czech Rep.",0
+"94","Poland","Slovakia",0
+"95","Poland","Russia",0
+"96","Poland","Lithuania",9.51221699249052
+"97","Poland","Ukraine",0
+"98","Austria","Switzerland",0
+"99","Austria","Germany",0
+"100","Austria","Hungary",0
+"101","Austria","Czech Rep.",0
+"102","Austria","Slovakia",4.70963395877434
+"103","Austria","Italy",0
+"104","Austria","Croatia",39.4891198418562
+"105","Austria","Slovenia",0
+"106","Hungary","Austria",0
+"107","Hungary","Slovakia",0
+"108","Hungary","Croatia",0
+"109","Hungary","Slovenia",4.89924882280066
+"110","Hungary","Romania",0
+"111","Hungary","Ukraine",0.121254078895031
+"112","Czech Rep.","Germany",0
+"113","Czech Rep.","Poland",0
+"114","Czech Rep.","Austria",0
+"115","Czech Rep.","Slovakia",0
+"116","Slovakia","Poland",0
+"117","Slovakia","Austria",4.70963395877434
+"118","Slovakia","Hungary",0
+"119","Slovakia","Czech Rep.",0
+"120","Slovakia","Ukraine",0.373824244620804
+"121","Italy","France",0
+"122","Italy","Switzerland",0
+"123","Italy","Germany",48.0343749057448
+"124","Italy","Austria",0
+"125","Italy","Croatia",35.5698121571125
+"126","Italy","Slovenia",0
+"127","Albania","Macedonia",0
+"128","Albania","Greece",0
+"129","Macedonia","Albania",0
+"130","Macedonia","Greece",0
+"131","Macedonia","Bulgaria",0
+"132","Croatia","Austria",39.4891198418562
+"133","Croatia","Hungary",0
+"134","Croatia","Italy",35.5698121571125
+"135","Croatia","Slovenia",0
+"136","Slovenia","Austria",0
+"137","Slovenia","Hungary",4.89924882280066
+"138","Slovenia","Italy",0
+"139","Slovenia","Croatia",0
+"140","Greece","Albania",0
+"141","Greece","Macedonia",0
+"142","Greece","Bulgaria",0
+"143","Greece","Turkey",0
+"144","Bulgaria","Macedonia",0
+"145","Bulgaria","Greece",0
+"146","Bulgaria","Romania",0
+"147","Bulgaria","Turkey",0
+"148","Moldova","Romania",0
+"149","Moldova","Ukraine",0
+"150","Romania","Hungary",0
+"151","Romania","Bulgaria",0
+"152","Romania","Moldova",0
+"153","Romania","Ukraine",0
+"154","Russia","Poland",0
+"155","Russia","Estonia",0
+"156","Russia","Latvia",0
+"157","Russia","Lithuania",0
+"158","Russia","Ukraine",0
+"159","Russia","Georgia",0
+"160","Russia","Finland",0
+"161","Russia","Norway",0
+"162","Russia","Mongolia",0
+"163","Russia","Japan",45.9496706567723
+"164","Estonia","Russia",0
+"165","Estonia","Latvia",0
+"166","Latvia","Russia",0
+"167","Latvia","Estonia",0
+"168","Latvia","Lithuania",0
+"169","Lithuania","Poland",9.51221699249052
+"170","Lithuania","Russia",0
+"171","Lithuania","Latvia",0
+"172","Ukraine","Poland",0
+"173","Ukraine","Hungary",0.121254078895031
+"174","Ukraine","Slovakia",0.373824244620804
+"175","Ukraine","Moldova",0
+"176","Ukraine","Romania",0
+"177","Ukraine","Russia",0
+"178","Georgia","Russia",0
+"179","Georgia","Turkey",0
+"180","Finland","Russia",0
+"181","Finland","Sweden",0
+"182","Finland","Norway",0
+"183","Sweden","Finland",0
+"184","Sweden","Norway",0
+"185","Sweden","Denmark",21.4395199634265
+"186","Norway","Russia",0
+"187","Norway","Finland",0
+"188","Norway","Sweden",0
+"189","Denmark","Germany",6.19579706224071
+"190","Denmark","Sweden",21.4395199634265
+"191","Mali","Senegal",0
+"192","Mali","Niger",0
+"193","Senegal","Mali",0
+"194","Benin","Niger",0
+"195","Benin","Ghana",46.9218551385943
+"196","Benin","Nigeria",0
+"197","Niger","Mali",0
+"198","Niger","Benin",0
+"199","Niger","Nigeria",0
+"200","Ghana","Benin",46.9218551385943
+"201","Nigeria","Benin",0
+"202","Nigeria","Niger",0
+"203","Kenya","Tanzania",0
+"204","Tanzania","Kenya",0
+"205","Tanzania","Mozambique",0
+"206","Tanzania","Zambia",7.40183533236952
+"207","Angola","Zambia",0
+"208","Angola","Namibia",0
+"209","Angola","Botswana",36.5263592658734
+"210","Mozambique","Tanzania",0
+"211","Mozambique","Zambia",0
+"212","Mozambique","S. Africa",0
+"213","Zambia","Tanzania",7.40183533236952
+"214","Zambia","Angola",0
+"215","Zambia","Mozambique",0
+"216","Zambia","Namibia",28.9200975280693
+"217","Zambia","Botswana",35.6902987403384
+"218","S. Africa","Mozambique",0
+"219","S. Africa","Namibia",0
+"220","S. Africa","Botswana",0
+"221","Namibia","Angola",0
+"222","Namibia","Zambia",28.9200975280693
+"223","Namibia","S. Africa",0
+"224","Namibia","Botswana",0
+"225","Botswana","Angola",36.5263592658734
+"226","Botswana","Zambia",35.6902987403384
+"227","Botswana","S. Africa",0
+"228","Botswana","Namibia",0
+"229","Morocco","Spain",22.0480871837099
+"230","Turkey","Greece",0
+"231","Turkey","Bulgaria",0
+"232","Turkey","Georgia",0
+"233","Egypt","Israel",0
+"234","Lebanon","Israel",0
+"235","Israel","Egypt",0
+"236","Israel","Lebanon",0
+"237","Mongolia","Russia",0
+"238","Japan","Russia",45.9496706567723
+"239","India","Pakistan",0
+"240","India","Bangladesh",0
+"241","Pakistan","India",0
+"242","Bangladesh","India",0
+"243","Thailand","Malaysia",0
+"244","Malaysia","Thailand",0
+"245","Malaysia","Indonesia",0
+"246","Indonesia","Malaysia",0

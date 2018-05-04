@@ -1,0 +1,286 @@
+#######################
+# Load libraries
+#######################
+Sys.setlocale("LC_ALL","Chinese")
+library(httr)
+library(jsonlite)
+
+#######################
+# Load dataset
+#######################
+
+load_data <- function(save_sample = F){
+  rm(list = setdiff(ls(envir = .GlobalEnv), "load_data"), envir = .GlobalEnv)
+  load("data/cleaned/answer_s.Rdata")
+  # Draw a random sample (20%)
+  set.seed(10)
+  answer_s2 <<- answer_s[sample(1:nrow(answer_s), nrow(answer_s)/5),]
+  if (save_sample) save(answer_s2, file = "data/cleaned/answer_s2.Rda")
+}
+
+load_data()
+
+#######################
+# Check the dataset
+#######################
+  # Check if all look fine with this random sample
+  # seeing what the answers are
+  answer_s2$answer_text[3000]
+  # Length of answers
+  answer_s2$answer_text_len <- nchar(answer_s2$answer_text)
+  hist(answer_s2$answer_text_len)
+  # Anonymity
+  sum(is.na(answer_s2$user_id)) / nrow(answer_s2)
+  # Likes
+  summary(answer_s2$upvote)
+
+
+#####################################################
+# Sentiment Analysis: Answer (News trained data)
+#####################################################
+pay_money <- F
+
+if (pay_money){
+  # Get API response
+  ####################
+  
+  # Size of each batch of text submitted
+  n_batch <- 20
+  # Position to start
+  start <- 1
+  # Start a loop submitting the text and get results
+  batch <- start:(start + n_batch - 1)
+  while(TRUE){
+    r <- POST("http://api.bosonnlp.com/sentiment/analysis", 
+              add_headers("Content-Type" = "application/json",
+                          "Accept" = "application/json",
+                          "X-Token" = "lVCuM_kN.24714.Ol8rZ7R-wH7N"),
+              query = "news",
+              body = toJSON(answer_s2$answer_text[batch]))
+    if (r$status_code != 200){
+      stop("Status code not 200. Check what's wrong")
+    }
+    r$id <- answer_s2$id[batch]
+    save(r, file = paste0("data/boson-api-raw/answer/sentiment-news/", as.numeric(Sys.time()), ".Rda" ))
+    # Notification
+    message("Batch: ", batch[1], " to ", batch[n_batch])
+    # Move to next batch. and stopping rule
+    batch <- batch + n_batch
+    # batch <- batch[batch <= 100]
+    batch <- batch[batch <= length(answer_s2$answer_text)]
+    if (length(batch) == 0) break
+  }
+}  
+
+  # Parse API response
+  #####################
+  fname_resp <- list.files("data/boson-api-raw/answer/sentiment-news/")
+  length(fname_resp)
+  
+  results <- list()
+  for (i in 1:length(fname_resp)){
+    load(paste0("data/boson-api-raw/answer/sentiment-news/", fname_resp[i]))
+    out_str <- paste(rawToChar(as.raw(strtoi(r$content, 16L)), multiple = T), collapse="")
+    results[[i]] <- data.frame(id = r$id, fromJSON(out_str))
+    message(i, " of ", length(fname_resp))
+  }
+
+  results_df <- do.call(rbind.data.frame, results)
+  names(results_df)[2:3] <- c("sent_non_neg_news", "sent_neg_news")
+  
+  # Save sentiment data for answers
+  answer_sentiment_news <- results_df
+  save(answer_sentiment_news, file = "data/cleaned/answer_sentiment_news.Rda")
+
+
+  #####################################################
+  # Sentiment Analysis: Answer (Weibo trained data)
+  #####################################################
+  load_data()
+  
+  pay_money <- F
+  
+  if (pay_money){
+    # Get API response
+    ####################
+    
+    # Size of each batch of text submitted
+    n_batch <- 20
+    # Position to start
+    start <- 1
+    # Start a loop submitting the text and get results
+    batch <- start:(start + n_batch - 1)
+    while(TRUE){
+      r <- POST("http://api.bosonnlp.com/sentiment/analysis", 
+                add_headers("Content-Type" = "application/json",
+                            "Accept" = "application/json",
+                            "X-Token" = "lVCuM_kN.24714.Ol8rZ7R-wH7N"),
+                query = "weibo",
+                body = toJSON(answer_s2$answer_text[batch]))
+      if (r$status_code != 200){
+        stop("Status code not 200. Check what's wrong")
+      }
+      r$id <- answer_s2$id[batch]
+      save(r, file = paste0("data/boson-api-raw/answer/sentiment-weibo/", as.numeric(Sys.time()), ".Rda" ))
+      # Notification
+      message("Batch: ", batch[1], " to ", batch[n_batch])
+      # Move to next batch. and stopping rule
+      batch <- batch + n_batch
+      # batch <- batch[batch <= 6]
+      batch <- batch[batch <= length(answer_s2$answer_text)]
+      if (length(batch) == 0) break
+    }
+  }  
+  
+  # Parse API response
+  #####################
+  fname_resp <- list.files("data/boson-api-raw/answer/sentiment-weibo/")
+  length(fname_resp)
+  
+  results <- list()
+  for (i in 1:length(fname_resp)){
+    load(paste0("data/boson-api-raw/answer/sentiment-weibo/", fname_resp[i]))
+    out_str <- paste(rawToChar(as.raw(strtoi(r$content, 16L)), multiple = T), collapse="")
+    results[[i]] <- data.frame(id = r$id, fromJSON(out_str))
+    message(i, " of ", length(fname_resp))
+  }
+  
+  results_df <- do.call(rbind.data.frame, results)
+  names(results_df)[2:3] <- c("sent_non_neg_wb", "sent_neg_wb")
+  
+  # Save sentiment data for answers
+  answer_sentiment_weibo <- results_df
+  save(answer_sentiment_weibo, file = "data/cleaned/answer_sentiment_weibo.Rda")
+  
+
+#######################
+# NER: Answer
+#######################
+load_data()
+
+pay_money <- F
+if (pay_money){
+  # Get API response
+  ####################
+  
+  # Size of each batch of text submitted
+  n_batch <- 20
+  # Position to start
+  start <- 1
+  # Start a loop submitting the text and get results
+  batch <- start:(start + n_batch - 1)
+  while(TRUE){
+    r <- POST("http://api.bosonnlp.com/ner/analysis", 
+              add_headers("Content-Type" = "application/json",
+                          "Accept" = "application/json",
+                          "X-Token" = "lVCuM_kN.24714.Ol8rZ7R-wH7N"),
+              query = list(sensitivity = 2),
+              body = toJSON(answer_s2$answer_text[batch]))
+    
+    if (r$status_code != 200){
+      stop("Status code not 200. Check what's wrong")
+    }
+    r$id <- answer_s2$id[batch]
+    save(r, file = paste0("data/boson-api-raw/answer/ner/", as.numeric(Sys.time()), ".Rda" ))
+    # Notification
+    message("Batch: ", batch[1], " to ", batch[n_batch])
+    # Move to next batch. and stopping rule
+    batch <- batch + n_batch
+    # batch <- batch[batch <= 4]
+    batch <- batch[batch <= length(answer_s2$answer_text)]
+    if (length(batch) == 0) break
+  }
+}
+
+    
+  # Parse API response (get NER counts)
+  ######################################
+  fname_resp <- list.files("data/boson-api-raw/answer/ner/")
+  length(fname_resp)
+  
+  results <- list()
+  
+  # ids <- c()
+  # for (i in 1:length(fname_resp)){
+  #   load(paste0("data/boson-api-raw/answer/ner/", fname_resp[i]))
+  #   ids <- c(ids, r$id)
+  #   message(i)
+  # }
+  # summary(ids)
+  #
+  i = 1
+  for (i in 1:length(fname_resp)){
+    load(paste0("data/boson-api-raw/answer/ner/", fname_resp[i]))
+    out_str <- paste(rawToChar(as.raw(strtoi(r$content, 16L)), multiple = T), collapse="")
+    Encoding(out_str) <- "UTF-8"
+    out_json <- fromJSON(out_str)
+    
+    out_tab <- list()
+    for (j in 1:length(r$id)){
+      temp <- out_json$entity[[j]]
+      if (length(temp) > 0){
+        out_tab[[j]] <- cbind.data.frame(id = r$id[j], as.data.frame(table(temp[, 3])))
+        out_tab[[j]]$Var1 <- as.character(out_tab[[j]]$Var1)
+        out_tab[[j]] <- rbind.data.frame(out_tab[[j]], c(r$id[j], "num_token", length(out_json$word[[j]])))
+      } else{
+        out_tab[[j]] <- data.frame(id = r$id[j], Var1 = "num_token", Freq = length(out_json$word[[j]]))
+      }
+    } 
+    results[[i]] <- do.call(rbind, out_tab)
+    results[[i]]$Freq <- as.numeric(results[[i]]$Freq)
+
+    message(i, " of ", length(fname_resp))
+  }
+  
+  results2 <- do.call(rbind, results)
+  results3 <- reshape2::dcast(id ~ Var1, value.var = "Freq", fill = 0, data = results2)
+
+  # Save NER data for answers
+  answer_ner <- results3
+  save(answer_ner, file = "data/cleaned/answer_ner.Rda")
+  
+  
+  # Parse API response (get NER details)
+  ######################################
+  rm(list=ls())
+  fname_resp <- list.files("data/boson-api-raw/answer/ner/")
+  length(fname_resp)
+  
+  results <- list()
+  for (i in 1:length(fname_resp)){
+    load(paste0("data/boson-api-raw/answer/ner/", fname_resp[i]))
+    out_str <- paste(rawToChar(as.raw(strtoi(r$content, 16L)), multiple = T), collapse="")
+    Encoding(out_str) <- "UTF-8"
+    out_json <- fromJSON(out_str)
+    
+    results_batch <- list()
+    for (j in 1:length(out_json$tag)){
+      tmp_entity <- out_json$entity[[j]]
+      if (length(tmp_entity) > 0){
+        tmp_entity[, 1] <- as.numeric(tmp_entity[, 1]) + 1
+        tmp_entity[, 2] <- as.numeric(tmp_entity[, 2])
+        tmp_word <- out_json$word[[j]]
+        
+        results_batch[[j]] <- 
+          data.frame(
+            answer_id = r$id[j],
+            entity = apply(tmp_entity, 1, function(x) paste(tmp_word[x[1]:x[2]], collapse = "")),
+            type = tmp_entity[, 3]
+          )
+      } else{
+        results_batch[[j]] <- NULL
+      }
+    }
+    results[[i]] <- do.call(rbind, results_batch)
+    
+    message(i, " of ", length(fname_resp))
+  }
+  
+  results2 <- do.call(rbind, results)
+  names(results2)
+  length(unique(results2$answer_id))
+  
+  # Save NER data for answers
+  answer_ner_dt <- results2
+  save(answer_ner_dt, file = "data/cleaned/answer_ner_detail.Rda")
+  

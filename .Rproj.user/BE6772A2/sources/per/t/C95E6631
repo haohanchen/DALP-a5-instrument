@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523588900206.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3126986136",
+    "id" : "C95E6631",
+    "lastKnownWriteTime" : 1522877812,
+    "last_content_update" : 1522877812,
+    "path" : "~/Dropbox/WORK/DISSERTATION/Dissertation2.0/data/clean-data-answer.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "10,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

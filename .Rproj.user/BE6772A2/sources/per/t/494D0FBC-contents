@@ -1,0 +1,394 @@
+---
+title: "Lies to Friends, Truths to Strangers"
+subtitle: "Preference Falsification in Networked Authoritarian China"
+author: "Haohan Chen"
+date: "April 2, 2018"
+output: 
+  pdf_document:
+    number_sections: true
+fontsize: 12pt
+geometry: margin = 3cm
+linestretch: 1.5
+bibliography: /Users/haohanchen1/Dropbox/MendeleyBibTeX/Dissertation2.bib
+csl: apsa.csl
+header-includes:
+  - \usepackage{amsmath}
+---
+
+# Introduction
+
+Why do people in authoritarian regimes voice their political preferences publicly, despite their knowledge of the regime's sanction on speech? Why do some authoritarian regimes such as China tolerate public political discussions, even if they reveal regime weakness or may provoke collective action? Why does the spread of the Internet and social media not shake authoritarian rule in large parts of the world? Students of authoritarian politics do not have a coherent theory of preference expression that takes into account the strategic choices of both citizens and the regime with newly available means of communication technology. In this paper, I propose an updated theory of preference falsification in authoritarian regimes in the social media era. I then craft a research design to test a part of the theory with an original dataset of political discourse from *zhihu.com*, one of China's largest social network sites.
+
+Basically, I argue that individuals choose not only *what* but also in which *network* to present their political preferences so as to maximize their utilities from expression. In turn, the authoritarian regime responds strategically to collect information and to reduce threats of collective actions. My theory integrates strategic choices of both individuals and the regime. For individuals in authoritarian regimes, the new communication technology gives them the flexibility to choose in which social network to express their political preferences. Conditional on their choice of network, individuals then choose the degree to which they falsify their preferences ^[When one *falsifies* his preference, he misrepresents his genuine view [@kuran1995]. I will discuss the concept and the literature in details in later parts of the paper.]. I argue that, in the social media era in authoritarian regimes, individuals prefer to voice their true political preferences with "strangers" (those out of their close network) to doing so with their "friends" (those in their close network).
+
+Further, in response to individuals' strategic political expression, the authoritarian regime encourages political expression to strangers and suppress expression to friends  because the regime prefers to lower its cost of information collection and to reduce threats of collective action. The regime's preference can be explained by the following cost-benefit structure. First, expression of political opinions to strangers provides the regime with information. Political expression with strangers which usually occurs on the cyberspace is less costly for the regime to monitor, compared to communication with friends that may occur in a variety of venues which the regime can hardly monitor. Second, political expression with strangers is less likely to lead to collective action, because it is hard to reach the audiance who can potentially join the collective action. Even if it reaches the audience, it is less likely to persuade people to join a collective action, because (1) it is questionable as it is from a stranger, and (2) expression of conflicting preferences by different people inform the audience about the split of public opinion, thus disorganizing collective action.
+
+In this paper, I report preliminary finidings of both my theoretical and empirical pursuits. The rest of the paper will be organized as follows. Section 2 elaborates how I reach the above theory with reference to the state-of-the-art literature. Section 3 describes the dataset of social media political discourse I use to test my theory. Section 4 explains how I operationalize the variables of interest. Section 4 reports and discusses preliminary (null) findings. Section 5 discusses the potential contribution of this study and the next steps. 
+
+# Theory
+
+In this section, I elaborate how I arrive at my theory with reference to the state-of-the-art literature. I start with a review of recent empirical studies on formation and expression of political preferences in authoritarian China. I then discuss two censorship models and criticize the modeling of individual preference expression without realistic assumptions. I then suggest that the model of individual preference expression should borrow from a preference falsification model updated for the social media era.
+
+## Forming and Voicing Preferences under Authoritarianism
+
+Citizens in authoritarian China form heterogeneous political preferences and communicate them. The regime controls them strategically. Recent years have seen innovative empirical studies on the topic, but a theory with consistent micro-foundations is lacking. In this section, I offer a brief literature review.
+
+Citizens of authoritarian China form heterogeneous, structured political preferences, and they express them stratigically. Recent studies find that political preferences of Chinese respondents demonstrate high variation on economic, political and cultural dimensions, and are well explained by their demographics [@Pan2015a; @Wu2016d]. Yet, people voice their opinions strategically. Citizens without personal ties with governmental officials refrain from voicing their preferences to the authorities compared to those connected to the power [@Tsai2017]. Citizens fake their support for the government at times of high political pressure such as purge of officials [@Jiang2016a]. They self-censor their political discussions in public space to avoid engagement with a large audience at sensitive times and places [@changmanion2018].
+
+Citizens in authoritarian China receive and process political information in a sophisticated manner. Chinese citizens' trust in the regime and the ruling elites is influenced by political misinformation and its correction, as is shown in a survey experiment [@Huang2015b]. Experiments by the same author find that Chinese citizens may have liked Western countries due to a rosy picture of the socioeconomic conditions in these countries; their evaluation of the Chinese regime increases after they read reports from the foreign media, some of which write about the negative side of foreign countries [@HUANG2015; @HaifengHuang2017]. 
+
+The authoritarian regime manages and manipulates the formation and the communication of political preferences strategically. First, the regime manages preference formation through education and propaganda. The regime shapes the "fundamentals" through education. Empirical findings show that the Chinese government has successfully cultivated pro-regime, anti-democracy and anti-market ideology through a curriculum reform [@Cantoni2017]. In addition, the regime uses media for propaganda, not only to introduce pro-regime values and attitudes, but also to signal its strength in media control [@Huang2014a]. Second, the regime manages the commmunication of political preferences through strategic censorship. A large-scale observational and experimental study of China's social media shows that the regime is more likely to censor posts provoking collective actions than those criticizing the government [@King2013; @King2014a]. Moreover, the Chinese regime hires a large "army" (the "fifty cents") to distract citizens from online dialogue harmful to the regime [@King2016]. The regime has also compelled commercial providers of Internet service to remove politically sensitive online content [@Miller2017a].
+
+How do citizens and the authoritarian regime interact in the process of preference formation and communication? Recent studies in the literature find that citizens respond to the state's management and manipulation. @Hobbs2016a show the regime's sudden censorship of particular content can stimulate citizens' search for not only the censored content of interest, but also other related content. @Chen2017c find citizens of authoritarian China may have overall low demand for uncensored information, even if techniques bypassing censorship are provided. However, the study also finds that as long as they are encourged and takes the first step to obtain uncensored information, they will become "addicted" to it. As to the regime, officials are receptive towards citizens' public expression of political preference online only when they perceive state-society tension to be low [@Meng2017a]. 
+
+Reflecting upon the studies reviewed above, I argue that the scholarship has made progress in finding empirical patterns of preference formation and expression in authoritarian China. However, a consistent theory with micro-foundations is missing. First, scholars have employed inovative empirical strategies to collect (e.g., web scraping, survey experiments, quasi-experiments) and analyze (e.g., machine learning) large-scale individual-level data. However, what is missing in the state-of-the-art literature is a theoretical model of preference expression and its control by the authoritarian regime with coherent micro-foundations of both citizens and the regime. Specifically, how do citizens choose whether to express their preferences? If one decides to express his preferences, how and where does he express them, given an understanding of the regime's preference and strategy? At the same time, how does the regime control citizens' preference expression in its favor, given its understanding of citizens concerns? 
+
+## Strategic Censorship
+
+As I argue in the previous section, to fill the gap of the state-of-the-art literature, we need a theoretical model specifying micro-level preferences of citizens and the regime (or its elites). The political science literature of authoritarian politics in the past decades has set a solid foundation for this theoretical pursuit.
+
+With a focus on elite strategies, two recent theoretical contributions argue that authoritarian regimes censor expression of political preferences to monitor lower-level officials and to disorganize collective action. First, @Lorentzen2014 models the Chinese regime's decision to censor independent reports targeting lower-level officials as a trade-off between gaining information about corruption and the threat of revolt. Second, in the game theoretic model of @Chen2017b, citizens do not organize collective action if they find sufficient division of opinion by voices of others, while the regime allows citizens to voice their opinions when they perceive high-enough heterogeneity in public opinion. 
+
+While the above two models are good starting points of my theoretical pursuit, they fall short in reflecting the essence of preference expression in authoritarian politics in the following way. First, @Lorentzen2014 does not model the step of citizens' choice of preference expression, which is central to the question of authoritarian censorship. Second, while @Chen2017b explicitly model citizens' voicing preferences, citizens are assumed to naively express their true preferences, which is a strong and unrealistic assumption. Third, the two models are both two-player games, which are high-level abstractions of the real-world politics where a large number of connected citizens make strategic choices in preference expression. As a critical part of preference expression, each citizen may make his decision based on not only the regime's strategies, but also on how he expects other citizens will react. I argue that a theory with reasonable micro-level assumptions can borrow from the preference falsification literature, which can be updated for the social media era.
+
+## Falsifying Preferences under Networked Authoritarianism
+
+I argue that a theory of preference expression in authoritarian regime can borrow from the seminal work on preference falsification. @kuran1995 argues that people make false statements about their preferences on many occasions. This is because one makes decisions about preference expression to maximize the aggregation of three types of utilities: *intrinsic utility*, which represents the option one would choose if he is alone; *reputational utility*, the payoff incurred when society knows about one's preference; and *expressive utility*, one's psychological payoff for speaking the truth. Kuran argues that fear of *reputational sanctions* can drive people to falsify their expression of political preferences. In line with this micro-level mechanism, the theory explains why the world fails to predict revolutions: people fake their support for the dictator, while only revealing their opposition when a sufficient number of others have done so [see also @Kuran1989; @Kuran1991]. The theory has been empirically tested in different country contexts for more than a decade [e.g., for China see @Jiang2016a].
+
+Borrowing from this theoretical framework, I sketch an individual-level utility function of preference expression. In my model, individuals' utility of preference expression is a function of the deviation of his expression from the average preference of the public *and* the deviation of his expressed preference from his intrinsic preference. Assuming political preferences can be represented by a vector in a high-dimensional space $x$, let citizen $i$ have an intrinsically preferred policy $x_i^I$ and an expressed preferred policy $x_i^E$. Also, let the average preferred policy be $\bar{x}$. Also, assume a parameters $\alpha$ and $\beta$ which indicate how much reputational and expressive utility affect one's total utility. Then citizen $i$'s utility function of expression is
+
+\begin{gather*}
+  U_i = \underbrace{- \alpha || x_i^E - \bar{x} ||}_\text{Reputational Utility} \underbrace{- \beta || x_i^E - x_i^I ||}_\text{Expressive Utility}
+\end{gather*}
+
+The first element of the right-hand side shows that when an individual expresses a preference more distant from the public, he suffers greater reputational loss. The second part shows that when distance from one's expressed preference to intrinsic preference increases,  expressive loss increases. 
+
+<!--
+# I add a third element of the utility function representing losses from regime sanction of preference expression. Assuming the political preference of the regime is $x^R$, an individual will suffer from more punishment the more his expression deviate from the regime's preference $|| x_i^E - x^R ||$. The parameter $\gamma$ models the severity of the sanction -- a higher $\gamma$ means one pays a higher price for one unit of deviation of his expressed preference from the regime's preference.
+# 
+# \begin{gather*}
+#   U_i = \underbrace{- \alpha || x_i^E - \bar{x} ||}_\text{Reputational Utility} \underbrace{- \beta || x_i^E - x_i^I ||}_\text{Expressive Utility} \underbrace{- \gamma || x_i^E - x^R ||}_\text{Regime Sanction}
+# \end{gather*}
+# 
+# It is worth emphasizing that, in my theory, I make a clear distinction between reputational sanction and regime sanction. The former is imposed by other individuals who find the preferences of individual $i$ different from theirs. By my definition in this model, this sanction does *not* include the activity of reporting to the regime which has a consequence of regime sanction. The latter is imposed by the regime for one's expression of a preference not conforming with it. As I will elaborate in the following parts of this paper, the mechanism of interest in my project is the *reputational sanction* while regime sanction is a constant. 
+-->
+
+With this utility function, I consider an individual who knows his intrinsically preferred policy $x_i^I$ and who observes public preference $\bar{x}$ and the regime's preference $x^R$. He maximizes his utility with respect to his expressed political preference. Formally,
+
+\begin{gather*}
+  \max_{x_i^E} \{- \alpha || x_i^E - \bar{x} || - \beta || x_i^E - x_i^I ||\}
+\end{gather*}
+
+After formalizing the basic form of preference falsification, I move on to discuss how individual-level payoffs should be updated in the social media era. In essence, people now have the option to voice political preferences inside or outside their close network, where the reputational and expressive utilities have different structures. In the classic preference falsification theory, members of "the public" or "society" who reward or punish an individual for his reputational utility are presumably in the individual's close network, such as families, colleagues, neighbours, friends. Those who are not in one's network, i.e., the strangers, have near zero effect on one's utility of preference expression because people simply have no way to express their political preferences to them. Today, with the development of the Internet and social media, individuals can express their preferences to both members in their close network (friends) and those outside their close network (strangers). I argue that a model of preference expression in authoritarian regimes should fit the current mode of political communication.
+
+## Voicing in Networks: Lies to Friends, Truths to Strangers
+
+I propose the following theory of political preference expression in authoritarian regimes: *In the social media era, citizens in authoritarian regimes lie to friends (i.e., people in their close network), but tell the truth to strangers (i.e., those outside their close network). The regime tolerates political communication among strangers, and uses it to maintain control.* The logic is elaborated as follows.
+
+I argue that the new technology empowers citizens to connect with strangers, thus allowing them to selectively express their political preferences in different networks of political discussion. The two networks offer different *payoff structures* of political expression: I political expression with friends causes higher reputational sanction, while conferring higher expressive utility. First, friends can impose real punishment in one's social life, if one expresses an opinion different from others (such as discontent about the regime). Second, the expressive utility of voicing one's intrinsic preference is higher with friends than with strangers. In the classic preference falsification theory, Kuran (p.31) cite findings in psychological experiments and argue that people do not always conform with social pressure and argue that expressing true preference has psychological payoff. As to the mechanism, Kuran explains that people "value the freedom to choose" and "derive self-esteem from resisting social pressue". In my theory, I take an further step to argue that the size of expressive utility is conditional on the audience. Expressing true preferences with friends confers higher expressive utility. I argue that expressing true preferences to friends offers higher psychological reward because people apply social norm of being sincere and honest when they interact with those in the close network, while this norm is not applied as much with strangers.Overall, the reduction in worries about reputational sanction outweigh the decrease of expressive utility for an average person. Thus, citizens in authoritarian regimes should express their true preferences to strangers while falsifying their preferences to friends.
+
+Extending upon the formalization in the previous section, let $\alpha_s$ and $\beta_s$ be the size of reputational sanction and the loss of expressive utility for expression of political preferences in a network of strangers. Also let Let $\alpha_f$ and $\beta_f$ be the size of reputational sanction and the loss of expressive utility respectively of preference expression in a close network. The difference of payoff of political expression with friends and strangers is modeled by varying the above parameters. First, as reputational sanction with friends is higher than that from strangers, the utility loss of one unit deviation of expressed preference from friends' average preference $||x_i^E - \bar{x}_f||$ is higher than that deviation from strangers $||x_i^E - \bar{x}_f||$. Thus, I let $\alpha_f > \alpha_s$. Second, as expressive utility is higher for political expression with friends, one unit deviation from $i$'s intrinsic preference $|| x_i^E - x_i^I ||$ in his expression with friends causes more loss than in expression with strangers. Then $\beta_f > \beta_s$. Hence, the utilities of preference expression with "strangers" and "friends" are respectively $U_i^s$ and $U_i^f$, written as follows. 
+
+\begin{gather*}
+  U^s_i = - \alpha_s || x_i^E - \bar{x}_s ||- \beta_s || x_i^E - x_i^I || \\
+  U^f_i = - \alpha_f || x_i^E - \bar{x}_f ||- \beta_f || x_i^E - x_i^I || \\
+  \alpha_f > \alpha_s \qquad \beta_f > \beta_s
+\end{gather*}
+
+Note that individuals *choose* in which network they express their political preferences. Let individuals voice their preference with strangers with probability $p$. Then, the utility and expected utility of an individual $i$ are
+\begin{gather*}
+  U_i = \begin{cases}
+    U^s_i & \text{if voice with strangers} \\
+    U^f_i & \text{if voice with friends}
+  \end{cases} \qquad
+  \text{Then } E(U_i) = p * U^s_i + (1 - p) * U^f_i
+\end{gather*}
+
+With individual utility functions specified above, I describe and formalize the regime's strategic choice. I argue that an authoritarian regime encourages citizens' expression of political opinion with strangers. The type of communication gives the regime the following benefit. First, it provides the regime with information. This is especially true as communications with strangers mostly occur in online platforms that the regime can closely monitor with low cost (comparing to monitoring what one talks about with friends in his living room). Second, it imposes minimal threat of collective action for several reasons. (1) due to the lack of connectedness of a network of strangers, messages voicing discontent are hard to reach an audience that can potentially join a collective action events; (2) even if the message reaches an audience that can potentially join a collective action event, the individuals involved are skeptical about the cridibility of the message and the sincerity of others, which reduces the chance of an collective action; (3) the size of the stranger's networks make it more likely for a citizen to encounter those with different opinion from his, which also discourages him from joining in collective action.
+
+I provide a sketch of formalization to capture the regime's utility which constitutes two important parts discussed above: collecting information and alleviating collective action. First, consider a simple case of one regime and one individual. The individual has an intrinsic value $x_i^I$ and expresses a preference $x_i^E$ (for simplicity, assume they are one-dimensional). The regime *observes* an expression of preference $\hat{x}_i^E$, which is a random variable with a distribution $\hat{x}_i^E \sim N(x_i^E, \sigma_E^2)$. This randomness captures the fact the regime faces uncertainty when it attempts to observe the individual's expressed preference. The regime would like to minimize its error when it predicts the individual's intrinsic preference $x_i^I$ with its observed expressed preference $\hat{x}_i^E$. Formally, the prediction error $Err$ is
+\begin{align*}
+  Err & = (\hat{x}_i^E - x_i^I)^2 \\
+  & = [(\hat{x}_i^E - x_i^E) + (x_i^E - x_i^I)]^2 \\
+  & = (\hat{x}_i^E - x_i^E)^2 + (x_i^E - x_i^I)^2 + C \\
+  E(Err) & = \underbrace{\sigma_E^2}_{Monitoring} + \underbrace{(x_i^E - x_i^I)^2}_{Falsify} + C
+\end{align*}
+As I show in the above function, to achieve good prediction of individual intrinsic preference, the state needs to reduce $(x_i^E - x_i^I)^2$, the extent to which the individual falsifies his preference, and $\sigma_E$, the uncertainty in observing expressed political preferences. As is explained above, encouraging citizens to voice their preferences to strangers, usually in cyberspace, serves the regime in reducing preference falsification and reducing noise in observing expressed preferences, thus increasing the regime's ability to predict individual intrinsic preference. Expression with strangers is associated with less preference falsification because individuals are less worried about reputational sanctions. It reduces the uncertainty of observation because the discourse is visible to the state as it appears in cyberspace.
+
+Another part of the regime's utility comes from the threat of collective action. Modeling the utility function on the state side requires an individual-level utility function of collective action. I argue that an individual's utility of joining in collective action consists of two components of political preferences. The first component is the distance between his intrinsic preference and the state's preference. The second component is the distance between the public's preference (either the average preferences expressed by strangers $\bar{x}_s$ or by friends $\bar{x}_s$, depending on which network the individual communicate with) and the state's preference. A larger distance of either of the above is associated with a higher utility of joining in collective action.
+\begin{gather*}
+    U_i^{\text{collective action}} = f(||x_i^I - x_R||, ||\bar{x} - x_R||)
+\end{gather*}
+
+My argument that individuals are dessuaded from joining in collective action if the state encourages them to voice preferences with strangers can be captured by this utility function. Following the above specification, the mechanism is that the average public opinion appear differently $\bar{x}$ in the cyberspace. This can be attributed to mechanisms discussed above: expression of public opnion with strangers is hard to reach an audience; it may draw more criticism, which appears to the individual as evidence of opinions different from his own. 
+
+In this section, I elaborate my theory and take a first step to formalize it by introducing utility functions of both individuals and the regime. While the theory at the current stage is complex and non-parsimonous, in the following part of the paper I focus on the individual-level mechanism of my theory. Specifically, I describe a research design to test the following two mechanisms. First, Individuals prefer to falsify their political preference with friends while telling their true feelings to strangers. In turn, as the micro-foundations of the regime's strategic response, preferences expressed with strangers are harder to reach their audience and are more likely to leads to politial communication that reveal opinion division. 
+
+While the concept of political preference too broad to operationalize, I further specify it for the scope of this paper. I use an conventional way to classify political preferences in authoritarian regimes -- support and opposition of the regime. Specifically, I test the following two refined version of the above theoretical argument:
+
+- Individuals refrain from discussing sensitive political issues or criticizing the regime with friends, while they are willing to do so with strangers.
+- In turn, as the micro-foundations of the regime's strategic response, sensitive political discussion or criticism against the regime voiced to strangers are harder to reach their audience and are more likely to leads to politial communication that reveal opinion division. 
+
+In the following section, I describe the data and methods I use to test this specific element of my theorertical argument.
+
+# Data
+
+The empirical challenge in testing the theory constitutes two parts: measuring what preferences people expresses and measruing in which network people express their preferences. This requires observation of a platform of preference expression where people are engaged in meaningful political discussion and where people's choice of revealing there preferences with strangers or friends is observable. I use with a dataset of online political discourse in one of China's largest social media, *zhihu.com*, which provides both measures. In this section, I describe the source of the data. I first briefly discuss how social media data is suitable in opinion studies in general. In part 2, I discuss why the political discourse in this website is suitable to answering the research question of interest. Part 3 discusses the demographics of the users on the site. Part 4 describes the structure of the website. Part 4 describes the "anonymity" option of the website that enables my research design.
+
+## Social Media Data in Opinion Studies
+
+Social media data have recently been used for empirical studies of public opinions in democracies and autocracies. In democracies, political scientist use social media data to study polarization and political persuasion. Studies find a strong "echo chamber" effect on Facebook and Twitter -- users only follow those who hold similar political opinion to theirs [@Bond2015; @Barbera2015; @Barbera2014; @Barbera2015a]. Also, field experiments are conducted in social media to understand ways to "correct" the echo chamber effect and reduce polarization. For example, an experiment on Facebook shows that exposure to ideologically diverse news has limited persuasive effect on political opinions [@Bakshy2015]. Another experiment on Facebook finds that peer pressure on the social media can mobilize turnout [@Bond2012]. In the aftermath of the 2016 presidential election, opinion studies on the social media focuses on the role and effect of misinformation [@Allcott2017; @Guess2018]. 
+
+Social media data in China has been used to study censorship and self-censorship. @Hobbs2016a use datasets of Twitter, Instagram and Weibo posts to show the consequence of the regime's sudden censorship of a foreign website. @changmanion2018 used geo-tagged Weibo posts to show the effect of times and spaces on self-censorship. @Stockmann2017 with a survey experiment finds that the type of social media platforms have an effect on whether Chinese citizens are willing to be engaged in political discussion. @King2014a conduct an experiment on the social media and find that the regime is more likely to censor posts of collective action potential than those criticizing the government.
+
+My empirical strategy is built on the above efforts of researching political opinion using social media using social media data. However, my approach differs from the above in the following ways. First, I use a dataset that arguably has a higher-quality political discussion. As I will introduce, uers of the online community I examine are engaged in quality political discussion. This ensures that the measures I create from it captures political preferences, which is a finer measure compared to follwers' network. Second, I create measures using Named Entity Recognition and Sentiment Analysis techniques which has higher construct vailidity for variables I operationalize, compared to topic modeling that is usually used to generate variables from text. Third, a distinct feature of the website provides me with a relatively clean measure of individual choice of network for their preference expression. Below I start introducing the data.
+
+
+## The Suitability of *zhihu.com*
+
+I use *zhihu.com* as my data source because it is one of the most popular Chinese social network sites with popularity and influence on politics in China that have attracted attention domestically and overseas. First, *zhihu.com* is one of the most popular social media sites in China. As shown in Figure \ref{fig:zhihu-popularity}, *zhihu.com* as of April 9 ranks 28th among all websites in China and 120th in the world, according to *Alexa*, an online service of Amazon that tracks real-time traffic of websites globally. A closer look at the 50 top visited sites in China  shows that the only two social network sites with larger traffic than *zhihu.com* are *Weibo.com* (8th) and *Tianya.cn* (21st).\footnote{The top 4 websites in China, from high to low ranking, Baidu (China's largest search engine), QQ.com (China's largest online largest portal), Taobao and Tmall (two leading online shopping sites). Data from Alexa, https://www.alexa.com/topsites/countries/CN, accessed April 9, 2018} Also, the site's management announced that it has over 100 million registered users, 26 million active users per day, 1-hour visit time per person per day, and over 18 billion visits per month by September 2017 \footnote{http://tech.qq.com/a/20170920/020694.htm}.
+
+\begin{figure}
+  \center
+  \caption{Popularity of zhihu.com}
+  \label{fig:zhihu-popularity}
+  \includegraphics[width = \linewidth]{prospectus2-figure/zhihu-rank} \\
+  {\footnotesize Source: https://www.alexa.com/siteinfo/zhihu.com, Accessed April 9, 2018}
+\end{figure}
+
+The political discouse on the website has been influential in several recent political events in China. For example, in 2016, the users of the the website raised public attention about the the Lei Yang Indicent in which a young man in Beijing died suspiciously in custody.  \footnote{http://www.scmp.com/news/china/policies-politics/article/1966336/young-life-lost-its-time-justice-be-served} Friends of Lei posted a statement and questions about Lei's suspicious death on zhihu, suggesting misconduct of the policemen handling the case. Fellow users on the site discussed inconsistency in the police statements, which were later quoted in reports in traditional media and discussion on other Chinese social media platforms such as *Weibo* and *WeChat*. The role of *zhihu.com* as a platform of voicing political opinion was later reported in the *Economist*.\footnote{https://www.economist.com/news/china/21706331-how-online-forum-catches-censors-unawares-posers-party} More recently, during the March 2018 National People's Congress, users on the website subtlely discussed and criticized removal of the article limiting presidential term in the consitution by asking and answering questions about the harm of "driver fatigue". This discussion cost the site a temporary suspension its mobile app.\footnote{http://www.businessinsider.com/china-banned-zhihu-over-censorship-2018-3} Beyond these high-profile cases, users of the site are actively engaged in everyday discussion of governance, policies, and international relations.
+
+## User Demographics of *zhihu.com*
+
+Like all studies using social media data, to claim generalizability of any findings from my study, it is essential to understand the demographics of the sample of users who contribute to the political discussion on the *zhihu* website. <!--This involves two levels of tasks -- the summary statistics of user demographics at the macro level and individual-level information. Both tasks are hard. In this part, I provide my best approximation of the macro-level statistics based on multiple data sources. I describe individual-level demographics in the Data Cleaning section.
+-->
+Overall, most zhihu users are located in China. An average zhihu user is younger, richer, more educated, more likely to be a student, more likely to be male and more likely to reside in an urban area (especially a big city) compared to the general Chinese population. First, a majority of the users access the website from an IP address in China. As shown in Figure \ref{fig:zhihu-user-origin}, 93 percent of users are located in China, while most of the remaining 7 percent access the site from Japan, United States, Hong Kong and Taiwan. Thus, I can safely state most preferences expressed on the site are from Chinese residents. However, the sample is not representative.  According to a report by Tencent Technology, over 80 percent of zhihu users have a college degree or above, and 76 percent of the users have medium or medium-high income.\footnote{http://tech.qq.com/a/20170920/020694.htm. Though this is a widely cited report from a authoritative outlet, I have not been able to verify the original publication of data this report quotes.} These statistics are supported by Doudou Bai, partner and senior vice president of Zhihu. In a talk he said, by May 2017, 73 percent of the websites' users were college-educated or above, 20 perent had high income, and 50 percent had a monthly consumption above 2000 CNY (or about $320).\footnote{https://m.mp.oeeee.com/a/BAAFRD00002017072745427.html. The report comes with a photo of the speaker introducing a slide containing the quoted data, which makes it reliable.} While no authoritative source has discussed demographics beyond income, education and consumption, I approximate other demographics from informal report by various data scientists who have scraped subsets of public profiles of the website's user. Overall, these reports show that a their samples include a large proportion of students, more male than female, and a large number of residents in big cities.\footnote{See (in Chinese) for instance: zhuanlan.zhihu.com/p/24960279; zhuanlan.zhihu.com/p/30051491; zhuanlan.zhihu.com/p/24411711; yangyingming.com/article/389. They are all blog posts which do not constitutes authoritative source.}
+
+\begin{figure}
+  \center
+  \caption{Location of Visitors}
+  \label{fig:zhihu-user-origin}
+  \includegraphics[width = .5\linewidth]{prospectus2-figure/zhihu-user-country.png} \\
+  {\footnotesize Source: https://www.alexa.com/siteinfo/zhihu.com, accessed April 9, 2018}
+\end{figure}
+
+
+## Structure of *zhihu.com*
+
+*Zhihu.com* is a question-and-answer website, which makes its structure more complex than most other social network websites analyzed in the literature. The most important activities for users of the site include asking questions, answering questions, voting (for or against) answers, and commenting on answers. Each user has a profile page visible to all others that shows his self-reported demographics and a list of his past activities. Users can follow other users to get updates of their activities.
+
+To elaborate, users of the site can perform the following activities. 
+
+- *Ask:* A user can post questions of his interest. The user may label his question with a large set of pre-defined *tags* (e.g. politics, economy, war, family, food). A question usually has multiple tags. The website then recommends the questions to users whose self-identified interest or record of activities matches with the tags or the key words of the questions. 
+- *Answer:* A user can post his answer to any question. As I will elaborate below, in my study I treat answers as expression of preference and create measures from them.
+- *Vote:* A user can "vote for" (*upvote*) an answer of his liking, or "vote against" (*downvote*) it. Any user can view how many and who upvotes for any answer, while the count and the source of downvote is not public information.
+- *Thank:* A user can express his endorsement of an answer by clicking "thank". It differs from *upvote* in that other users do not have information on who and how many users *thanks* an answer. However, the author of an answer has information on who *thanks* it, and the user profile page of a user shows how many times he has been thanked. 
+- *Not Helpful:* A user can respond to an answer by clicking a button *not helpful*, which usually indicates that the answer is irrelevant to the question of interest or is wrong. The statistics of *not helpful* clicks are not visible to any user. 
+- *Comment:* An user can comment on answers.\footnote{Authors of answers have the option to disable the discussion board, in which case no one can comment on it. However, openning the discussion forum is the default setting and few users choose to disable it.} Users who join the discussion can deliberate with one another by "replying to" specific participants. Users usually use this function to respond to opinions expressed in certain answers.
+- *Like a comment:* Users can *like* a comment. The total count of like a comment receive is visible to all users. There is no publicly available information about who likes certain comment, however.
+- *Follow:* An user can choose to follow a specific question, questions under a tag, or a specific user, which brings all updates of the question or user followed to his timeline. To view the appearance of the user interface of the site, please refer to screen shots of the user interface in the appendix. Figure \ref{fig:interface-timeline} shows what appear in users' timelines -- activities of accounts the user follows. Figure \ref{fig:interface-user-bio} shows what appear in users' profile page. Figure \ref{fig:interface-question} and \ref{fig:interface-answer-comment} shows what appear in a question and an answer.
+
+Despite the complexity of the website's structure, the focal point of my empirical analysis is *answers*, which I treat as the major venues of expression of political preferences on this website. Unlike *Weibo* (the Chinese Twitter), *Zhihu* imposes no word limit on answers. Moreover, it is "socially desirable" in this virtual community to post answers supported by logical reasoning and well-documented evidence. In response, fellow users mainly publicly reveal their opinions on certain answers by upvoting it or writing a comment which is usually short in length (comments resembles Weibo- or Twitter-style posts). In the context of political discussion, which is the focus of my study, it is natural to consider *answers* as preference expression and *upvotes* and *comments* as response to preference expression. Answers as preference expression are grouped by *questions* which usually concerns specific issues in the policy space. Specific issues discussed in *questions* are further group by *tags*, which is analogous to inter-related dimensions in the political arena.
+
+## Anonymity
+
+As a distinctive feature, zhihu allows a user to choose whether he wants others to link an answer to him every time he posts. The feature, namely, the *anonymity* option, is the key to my empirical research design. Figure \ref{fig:interface-any} shows how the the anonymity option works. The top panel of the figure is the website interface when an user posts an answer. The top-left corner of the answer editor shows the user's profile picture, which can reminds the user that his profile will appear with his answer. The top-right corner has a button "answer in anonymity". If the user click the anonymity button, a window pops up (bottom-left panel of the figure), warning that the option will keep the user anonymous in his activities and asking the user to confirm. If the user click "confirm", the user's profile picture disppear from the top-left corner of the interface (bottom-right panel). The design of this option ensures that users are well aware of the consequence of using this option. In Section 3, I will elaborate how I use this distinctive feature to operationalize variables in the theory.
+\begin{figure*}
+  \center
+  \caption{Zhihu Interface of Answer Editing - Anonymous and Non-anonymous}
+  \label{fig:interface-any}
+  \includegraphics[width = .6\linewidth]{prospectus2-figure/interface-post-ans-nonany.PNG}
+  
+  \includegraphics[width = .3\linewidth]{prospectus2-figure/interface-post-ans-any-warning.PNG}
+  \includegraphics[width = .6\linewidth]{prospectus2-figure/interface-post-ans-any.PNG}
+\end{figure*}
+
+# Operationalization
+
+In this section, I introduce the way I operationalize the political discussion on *zhihu.com*. Part 1 briefly introduce how I collect and pre-process the data. Part 2 and 3 discuss how I operationalize the dependent and independent variables respectively. 
+
+## Data Collection and Pre-Processing
+
+I developed a web scraper to collect the political discourse on *zhihu.com* posted from 1 December 2011 (when the website launched) to 30 March 2016. My scraper visited 101,532 question pages with the tag "politics",\footnote{A user who asks a certain question can choose tags. The website's administrators and users who view the question can edit or suggest an edit of the tag. Overall, I believe tags accurately classify questions into their correponding categories.} under which I collected a total of 511,137 answers to the questions. These answers received in total over 9.7 million upvotes and over 2 million comments by over 1.8 million unique users. I scraped the profiles of users who (1) asked a question tagged "politics"; or (2) posted an answer under any of these questions; or (3) upvoted or commented on any of these answers. Information in user profiles collected include a set of self-reported demographic information, namely, gender, location (province and city), education (name of schools attended), and occupation. The software I developed to scrape the data is built on an open-source scraper for the website *zhihu-python*. I substantially improved its performance by adding modules retrieving additional information not in the original parser, multi-threading and storing the information in an SQL database.\footnote{The Github page of open-source scraper \textit{zhihu-python} is https://github.com/egrcc/zhihu-python.} 
+
+```{r, include=FALSE}
+# User data
+# [1] "id"              "url"             "zhihu_id"        "gender"         
+# [5] "loc"             "business"        "employ"
+```
+
+With the collected data, I take a subset of answers and their responses for my empirical analysis of this paper. As I explained in the previous section, I consider answer as users' expression of preferences and votes for and comments on answers as response to preference expression. Thus, with the dataset with complex structure, I choose the dataset of answer as the focal point of my pre-process. It takes the following steps. First, I select all answers posted from 1 January 2015 to 31 December 2015. I select the subset because this is a period sufficiently close to the time of data collection (March 2016) and when user demographics information is available.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+# output: 
+#   pdf_document:
+#     latex_engine: xelatex
+#     includes: 
+#       in_header: header.tex
+```
+
+
+```{r}
+######################
+# Liraries
+######################
+library(ggplot2)
+library(cowplot)
+library(dplyr)
+library(wordcloud2)
+library(stargazer)
+
+######################
+# Load data
+######################
+load("../data/cleaned/answer_s2_merged.Rdata")
+answer$time_created2 <- as.POSIXct(answer$time_created, origin = "1970-01-01")
+answer$time_created3 <- as.Date(answer$time_created2)
+```
+
+
+```{r, fig.cap="\\label{fig:ans-desc-ans}Descriptive Statistics (Answers)", fig.width=8, fig.height=4, fig.align='center', out.width="100%", fig.pos="h"}
+# Date posted
+fig1 <- ggplot(answer, aes(x = time_created2)) + geom_histogram(bins = 365) + xlab("Date") + ylab("Number of Answer") + ggtitle("Number of Answers by Date")
+
+fig2 <- ggplot(answer, aes(x = ner_num_token)) + geom_histogram(bins = 60) + xlab("Number of Words") + ylab("Number of Answers") + ggtitle("Number of Words")
+plot_grid(fig1, fig2, ncol = 2)
+
+rm(fig1, fig2)
+```
+
+
+
+## Independent Variable
+
+## Dependent Variable I
+
+```{r, fig.cap="\\label{fig:ans-desc-sent}Descriptive Statistics (Sentiments)", fig.width=8, fig.height=4, fig.align='center', out.width="100%", fig.pos="h"}
+# Date posted
+fig1 <- answer %>% group_by(time_created3) %>% summarise(m_sent = mean(sent_neg_wb)) %>% ggplot(., aes(x = time_created3, y = m_sent)) + geom_line() + geom_smooth(method = 'loess') + xlab("Date") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Sentiment of Answers by Date")
+
+fig2 <- answer %>% group_by(time_created3) %>% summarise(m_sent = mean(comm_sent_neg_mean, na.rm = T)) %>% ggplot(., aes(x = time_created3, y = m_sent)) + geom_line() + geom_smooth(method = 'loess') + xlab("Date") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Avg Sentiment of Comments by Date")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+## Dependent Variable II
+
+
+
+```{r, fig.cap="\\label{fig:ans-desc-sent}Answer's Negative Sentiment and Anonymity", fig.width=5, fig.height=5, fig.align='center', out.width="50%", fig.pos="h"}
+# Sentiment by anonymity
+ggplot(answer, aes(x = anonymity, y = sent_neg_wb)) + geom_boxplot() + xlab("Anonymity") + ylab("Pr(Negative Sentiment)") + ggtitle("Negative Comments and Answer")
+
+```
+
+```{r, fig.cap="\\label{fig:comm-sent-ano}Comments' Negative Sentiment and Anonymity", fig.width=10, fig.height=5, fig.align='center', out.width="80%", fig.pos="h"}
+# Sentiment by anonymity
+fig1 <- ggplot(answer, aes(x = anonymity, y = comm_sent_neg_mean)) + geom_boxplot() + xlab("Anonymity") + ylab("Avg Pr(Negative Sentiment)") + ggtitle("Mean")
+
+fig2 <- ggplot(answer, aes(x = anonymity, y = comm_sent_neg_var)) + geom_boxplot() + xlab("Anonymity") + ylab("Var Pr(Negative Sentiment)") + ggtitle("Variance")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+
+
+## Control Variables
+
+# Hypotheses
+
+# Preliminary Results
+
+```{r, fig.cap="\\label{fig:comm-num-ano}Number of Comments and Back-and-Forth Discussions", fig.width=10, fig.height=5, fig.align='center', out.width="80%", fig.pos="h"}
+# Sentiment by anonymity
+fig1 <- ggplot(answer, aes(x = anonymity, y = log(comment_n))) + geom_boxplot() + xlab("Anonymity") + ylab("Number of Comments") + ggtitle("Comments")
+
+fig2 <- ggplot(answer, aes(x = anonymity, y = log(comm_n_bnf))) + geom_boxplot() + xlab("Anonymity") + ylab("Number of Back-and-Forth") + ggtitle("Back and Forth")
+
+plot_grid(fig1, fig2, ncol = 2)
+rm(fig1, fig2)
+```
+
+```{r, results='asis'}
+# Table. NER
+answer %>% group_by(anonymity) %>% select(ner_job_title, ner_location, ner_org_name, ner_person_name) %>% summarise_all(funs(mean)) %>% rename("Job Title" = ner_job_title, "Location" = ner_location, "Org Name" = ner_org_name, "Person Name" = ner_person_name) %>% t %>% stargazer(., title = "Average of Mentioning Named Entities", label = "tab:ner", header = F)
+```
+
+# Discussion and Next Steps
+
+\clearpage
+
+\appendix
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+# Appendix: User Interface
+
+\begin{figure}[h]
+  \center
+  \caption{Timeline of zhihu.com}
+  \label{fig:interface-timeline}
+  \includegraphics[height = .7\textheight]{prospectus2-figure/interface-timeline.png}
+\end{figure}
+
+\begin{figure}
+  \center
+  \caption{User Bio Page of zhihu.com}
+  \label{fig:interface-user-bio}
+  \includegraphics[height = \textheight]{prospectus2-figure/interface-user-bio.png}
+\end{figure}
+
+\begin{figure}
+  \center
+  \caption{Question page of zhihu.com}
+  \label{fig:interface-question}
+  \includegraphics[height = \textheight]{prospectus2-figure/interface-question.png}
+\end{figure}
+
+\begin{figure}
+  \center
+  \caption{Answer, Votes and Comments of zhihu.com}
+  \label{fig:interface-answer-comment}
+  \includegraphics[height=\textheight]{prospectus2-figure/interface-answer-comment.png}
+\end{figure}
+
+\clearpage
+
+# Appendix: Recognized Entities
+
+\begin{figure}[!htb]
+  \centering
+  \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-job-title}
+      \caption{NER: Job Title}
+      \label{fig:ner1}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-person-name}
+      \caption{NER: Person Name}
+      \label{fig:ner2}
+  \end{minipage}
+  \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-org-name}
+      \caption{NER: Organizatoin Name}
+      \label{fig:ner3}
+  \end{minipage}%
+  \begin{minipage}{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{prospectus2-figure/ner-wordcloud-location}
+      \caption{NER: Location}
+      \label{fig:ner4}
+  \end{minipage}
+\end{figure}
+
+
+
+\clearpage
+
+# References

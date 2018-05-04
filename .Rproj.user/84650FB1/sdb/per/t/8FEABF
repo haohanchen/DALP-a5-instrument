@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523459511197.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8FEABF",
+    "lastKnownWriteTime" : 7217145282325212780,
+    "last_content_update" : 1523459511197,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "yn4ymlx0av",
+        "caption" : "ccodeCOW",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=ccodeCOW&cache_key=yn4ymlx0av",
+        "displayedObservations" : "243",
+        "environment" : "",
+        "object" : "ccodeCOW",
+        "totalObservations" : "243",
+        "variables" : "3"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

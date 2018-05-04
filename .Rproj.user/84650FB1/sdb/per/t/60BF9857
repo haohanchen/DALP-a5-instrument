@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523468408564.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "60BF9857",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1523468408564,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "okfshrrt41",
+        "caption" : "country3",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=country3&cache_key=okfshrrt41",
+        "displayedObservations" : 87,
+        "environment" : "",
+        "object" : "country3",
+        "totalObservations" : 87,
+        "variables" : 89
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

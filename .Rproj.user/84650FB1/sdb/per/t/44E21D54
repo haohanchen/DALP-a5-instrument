@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: 'DALP: Instrument of Organizatoin Capacity'\nauthor: \"Haohan Chen, Herbert Kitschelt\"\ndate: \"March 25, 2018\"\noutput: pdf_document\n---\n\n```{r, include=FALSE, eval=FALSE}\n# Load libraries\n####################\nlibrary(dplyr)\nlibrary(ggplot2)\n\n# Load DALP data\n#####################\nparty <- read.csv(\"DALP_party.csv\", encoding = \"latin1\")\ncountry2 <- read.csv(\"DALP_country2.csv\")\ndalp <- merge(party, country2, by = \"ccode\")\n\n# Load contituity dataset \n# http://www.correlatesofwar.org/data-sets/direct-contiguity\n#############################################################\nrun <- F\nif (run){\n  library(cshapes)\n  dist <- cshapes::distmatrix(type = \"mindist\", date = as.Date(\"2009/1/1\"))\n  save(dist, file = \"distance.Rda\")\n}\nload(\"distance.Rda\")\n\n# Check match of countries\ncountry2[!country2$ccodecow %in% colnames(dist), c(\"country\", \"ccodecow\")]\n# Germany and Serbia not matched. Check with the COW codebook\nccodeCOW <- read.csv(\"COW country codes.csv\")\nccodeCOW[ccodeCOW$StateAbb %in% c(\"GFR\", \"GDR\", \"GMY\", \"YUG\"),]\n\nc(255, 260, 265, 345) %in% colnames(dist)\n# Recode the Germany one... weird\ncolnames(dist)[colnames(dist) == \"260\"] <- \"255\"\nrownames(dist)[rownames(dist) == \"260\"] <- \"255\"\n\n# A final list of ccodewb (Serbia removed)\nv_ccodecow <- as.character(country2$ccodecow)\nv_ccodecow <- v_ccodecow[v_ccodecow != \"345\"]\n```\n\n# Creating the instrument\n```{r}\n# Subset the contiguity matrix\ndist_s <- as.data.frame(dist[v_ccodecow, v_ccodecow])\n\ndist_s$ccodecow <- row.names(dist_s)\n\ncountry3 <- merge(country2, dist_s, by = \"ccodecow\")\n\ncountry3 <- country3[, c(\"ccodecow\", \"ccodewb\", \"country\", as.character(country3$ccodecow))]\nnames(country3)[-3:-1] <- as.character(country3$ccodewb)\ncountry4 <- country3[,-1]\n\nwrite.csv(country4, \"cont-matrix.csv\", row.names = F)\n```\n\n\n```{r, include=FALSE}\n# Load libraries\n####################\nlibrary(dplyr)\nlibrary(ggplot2)\n\n# Load DALP data\n#####################\nparty <- read.csv(\"DALP_party.csv\", encoding = \"latin1\")\ncountry2 <- read.csv(\"DALP_country2.csv\")\n\n# Get a vector of countries\nv_iso3c <- unique(party$ccodewb)\n\n# Load contituity dataset \n# http://www.correlatesofwar.org/data-sets/direct-contiguity\n#############################################################\n\ncont <- read.csv(\"DirectContiguity320/contdird.csv\")\ncont_s <- subset(cont, year == 2009)\nnames(cont_s)\nhead(cont_s)\n\n# type: \n# 1: Separated by a land or river border \n# 2: Separated by 12 miles of water or less \n# 3: Separated by 24 miles of water or less (but more than 12 miles) \n# 4: Separated by 150 miles of water or less (but more than 24 miles) \n# 5: Separated by 400 miles of water or less (but more than 150 miles)\n\n# Check consistency of country code of two datasets\n######################################################\nunique(party$ccodewb)[(unique(party$ccodewb) %in% unique(cont_s$state1ab))]\nccode <- merge(party[,c(\"party\", \"ccodecow\")], cont_s, by.x = \"ccodewb\", by.y = \"state1ab\")\n\n# What are the measure for the countries\nfor (i in 1:nrow(party))\n\ncont_s %>% filter(state1ab %in% party$ccodewb, conttype == 1)\n```\n\n\n\n\n```{r}\nnames(party)[1:10]\nparty$ccodewb\n\napply(party, 1, function(x) cont[x[\"ccodewb\"]])\n```",
+    "created" : 1523458600067.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1212764748",
+    "id" : "44E21D54",
+    "lastKnownWriteTime" : 1523496464,
+    "last_content_update" : 1523496464439,
+    "path" : "C:/Users/hc149/Dropbox/WORK/Research (now)/RA - Herbert/Instrument 3.25.2018/DALP instrument.Rmd",
+    "project_path" : "DALP instrument.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

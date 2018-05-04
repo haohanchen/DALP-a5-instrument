@@ -1,0 +1,93 @@
+---
+title: 'DALP: Instrument of Organizatoin Capacity'
+author: "Haohan Chen, Herbert Kitschelt"
+date: "March 25, 2018"
+output: pdf_document
+---
+
+```{r, include=FALSE, eval=FALSE}
+# Load libraries
+####################
+library(dplyr)
+library(ggplot2)
+
+# Load DALP data
+#####################
+party <- read.csv("DALP_party.csv", encoding = "latin1")
+country2 <- read.csv("DALP_country2.csv")
+dalp <- merge(party, country2, by = "ccode")
+
+# Load contituity dataset 
+# http://www.correlatesofwar.org/data-sets/direct-contiguity
+#############################################################
+run <- F
+if (run){
+  library(cshapes)
+  dist <- cshapes::distmatrix(type = "mindist", date = as.Date("2009/1/1"))
+  save(dist, file = "distance.Rda")
+}
+# distance in kilometers
+load("distance.Rda") 
+
+# Check match of countries
+country2[!country2$ccodecow %in% colnames(dist), c("country", "ccodecow")]
+# Germany and Serbia not matched. Check with the COW codebook
+ccodeCOW <- read.csv("COW country codes.csv")
+ccodeCOW[ccodeCOW$StateAbb %in% c("GFR", "GDR", "GMY", "YUG"),]
+
+c(255, 260, 265, 345) %in% colnames(dist)
+# Recode the Germany one... weird
+colnames(dist)[colnames(dist) == "260"] <- "255"
+rownames(dist)[rownames(dist) == "260"] <- "255"
+
+# A final list of ccodewb (Serbia removed)
+v_ccodecow <- as.character(country2$ccodecow)
+v_ccodecow <- v_ccodecow[v_ccodecow != "345"]
+```
+
+# Creating the instrument
+```{r}
+# Subset the contiguity matrix
+dist_s <- as.data.frame(dist[v_ccodecow, v_ccodecow])
+
+dist_s$ccodecow <- row.names(dist_s)
+
+country3 <- merge(country2, dist_s, by = "ccodecow")
+
+country3 <- country3[, c("ccodecow", "ccodewb", "country", as.character(country3$ccodecow))]
+names(country3)[-3:-1] <- as.character(country3$ccodewb)
+country4 <- country3[,-1]
+for (i in 1:nrow(country4)){
+  for (j in 1:ncol(country4)){
+    if (i == j - 2){
+      country4[i, j] <- NA
+    }
+  }
+}
+
+write.csv(country4, "cont-matrix.csv", na = "", row.names = F)
+```
+
+
+```{r}
+# All countries = 0 miles
+THRESHOLD <- 0
+get_contiguous <- function(THRESHOLD = 0, fname = "contiguity_0.csv"){
+  n_country <- c()
+  name_country <- list()
+  name_country_out <- c()
+  for (i in 1:nrow(country4)){
+    n_country[i] <- sum(country4[i, -c(1, 2, i + 2)] <= THRESHOLD)
+    name_country[[as.character(country4$country[i])]] <- as.character(country4$country[which(country4[i, -c(1, 2)] <= THRESHOLD)])
+    name_country_out[as.character(country4$country[i])] <- paste(as.character(country4$country[which(country4[i, -c(1, 2)] == 0)]), collapse = "; ")
+  }
+  write.csv(plyr::ldply(name_country, rbind), fname, na = "")
+  # return(name_country)
+}
+
+get_contiguous(0)
+get_contiguous(THRESHOLD = 100, fname = "contiguity_100.csv")
+get_contiguous(THRESHOLD = 500, fname = "contiguity_500.csv")
+get_contiguous(THRESHOLD = 1000, fname = "contiguity_1000.csv")
+
+```
